@@ -7,7 +7,7 @@ public interface Room {
 	/**
 	 * displays unique message for each room
 	 */
-	private void EnterRoom() {};
+	abstract void EnterRoom();
 
 	
 }
