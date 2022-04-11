@@ -18,7 +18,9 @@ public class mainClass {
 				while(uAction.hasNext()) {
 					System.out.println(uAction.next());
 				}
-				
+		System.out.println("Welcome to Abducted");
+		System.out.println("Please type enter to start");
+		
 	}
 
 }
