@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class mainClass {
 
