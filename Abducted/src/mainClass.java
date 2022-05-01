@@ -22,6 +22,7 @@ public class mainClass {
 					System.out.println(uInput);
 					if(uInput.toLowerCase().equals("enter") && gamestarted == false) {
 						Room1Desc();
+						gamestarted = true;
 					}
 					if (uInput.toLowerCase().equals("h")) {
 						// Bailey added all the current possible actions
