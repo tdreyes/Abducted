@@ -55,6 +55,14 @@ public class mainClass {
 	}
 	
 	public static void Room1Desc() {
-		
+		System.out.println("You wake up in a dark poorly lit room. The room is small, maybe 6 feet by 8 feet, the room contains 4 walls,");
+		System.out.println("two of which have windows, one window views the adjacent room, you turn around to look out the other window to be");
+		System.out.println("greeted with the endless void of space. Panicked on how to escape this place you look around  the entire room.");
+		System.out.println("You see corpses of extraterrestrial creatures, two of them are similar in appearance, the only way you can describe the");
+		System.out.println("creatures in your head is that they look similar to a flying squirrel if they were twice as big, purple, slimy,");
+		System.out.println("and had 3 mouths with sharp fangs. The other creature which you assume was the master of the other two creatures");
+		System.out.println("It seems you got lucky as you’re the only living creature in this room. You stand up and observe the entire room, you’ve");
+		System.out.println("seen enough sci-fi movies to recognize that you are in an airlock on a spaceship. you start to feel less lucky");
+		System.out.println("as an alarm starts beeping, red lights start flashing in tune to the alarm.");
 	}
 }
