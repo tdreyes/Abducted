@@ -3,9 +3,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class mainClass {
-
+	static boolean gamestarted = false;
 	public static void main(String[] args) {
-		boolean gamestarted = false;
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
 				System.out.println("Please type enter to start");
@@ -22,7 +21,6 @@ public class mainClass {
 					System.out.println(uInput);
 					if(uInput.toLowerCase().equals("enter") && gamestarted == false) {
 						Room1Desc();
-						gamestarted = true;
 					}
 					if (uInput.toLowerCase().equals("h")) {
 						// Bailey added all the current possible actions
@@ -67,5 +65,6 @@ public class mainClass {
 		System.out.println("It seems you got lucky as you’re the only living creature in this room. You stand up and observe the entire room, you’ve");
 		System.out.println("seen enough sci-fi movies to recognize that you are in an airlock on a spaceship. you start to feel less lucky");
 		System.out.println("as an alarm starts beeping, red lights start flashing in tune to the alarm.");
+		gamestarted = true;
 	}
 }
