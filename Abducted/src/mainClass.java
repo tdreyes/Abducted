@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class mainClass {
 
 	public static void main(String[] args) {
+		boolean gamestarted = false;
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
 				System.out.println("Please type enter to start");
@@ -17,6 +18,9 @@ public class mainClass {
 				// Bailey Fixed input results
 				while(!uInput.equals("e")) {
 					System.out.println(uInput);
+					if(uInput.toLowerCase().equals("enter") && gamestarted == false) {
+						Room1Desc();
+					}
 					if (uInput.toLowerCase().equals("h")) {
 						// Bailey added all the current possible actions
 						System.out.println("Possible Actions Include:");
@@ -49,5 +53,8 @@ public class mainClass {
 				}
 				
 	}
-
+	
+	public static void Room1Desc() {
+		
+	}
 }
