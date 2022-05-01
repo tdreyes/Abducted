@@ -12,12 +12,12 @@ public class mainClass {
 				 */
 				Scanner uAction = new Scanner(System.in);
 				String uInput;
+				uInput = uAction.next();
+				uInput += uAction.nextLine();
 				// Bailey Fixed input results
-				while(uAction.hasNext()) {
-					uInput = uAction.next();
-					uInput += uAction.nextLine();
+				while(!uInput.equals("e")) {
 					System.out.println(uInput);
-					if (uInput == "h") {
+					if (uInput.toLowerCase().equals("h")) {
 						// Bailey added all the current possible actions
 						System.out.println("Possible Actions Include:");
 						System.out.println("USE");
@@ -31,14 +31,21 @@ public class mainClass {
 						System.out.println("You may also type E or Exit At any time to exit the game");
 					}
 					// Bailey added a search inventory command
-					if (uInput == "I" || uInput == "Inventory") {
+					if (uInput.toLowerCase().equals("i") || uInput.toLowerCase().equals("inventory")) {
+						System.out.println("nothing here yet");
 						
 					}
 					// Bailey added a search inventory command
-					if (uInput == "E" || uInput == "Exit") {
+					if (uInput.toLowerCase().equals("e") || uInput.toLowerCase().equals("exit")) {
 						uAction.close();
 						System.exit(0);
 					}
+					uInput = uAction.next();
+					uInput += uAction.nextLine();
+				}
+				if (uInput.toLowerCase().equals("e") || uInput.toLowerCase().equals("exit")) {
+					uAction.close();
+					System.exit(0);
 				}
 				
 	}
