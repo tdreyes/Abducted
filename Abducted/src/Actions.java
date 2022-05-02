@@ -3,12 +3,12 @@
  * @author teresa
  *
  */
-public enum UserCommands {
-	
-	WALK,
-	USE,
-	OPEN,
-	GET,
-	LOOK,
-
-}
+public enum Actions{
+		USE,
+		LOOK,
+		TAKE,
+		SMASH,
+		SHOOT,
+		RELOAD,
+		HIDE;
+	}
