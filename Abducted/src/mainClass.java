@@ -22,7 +22,7 @@ public class mainClass {
 					//put the user input on  println
 					System.out.println(uInput);
 					
-					if(uInput.toLowerCase().equals("start")) {			
+					if(uInput.toLowerCase().equals("enter")) {			
 						startR.EnterRoom();			
 					}
 					if(uInput.toLowerCase().equals("look")) {
