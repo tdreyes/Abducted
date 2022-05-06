@@ -10,10 +10,9 @@ public class Starting_Room implements Room {
 	public final String RoomName = "Airlock";
 	
 	@Override public void EnterRoom() {
-		System.out.println("You start the game in a dark poorly lit room. The room is small, maybe 6 feet by 8 feet,");
+		System.out.println("You are standing in a dark poorly lit room. The room is small, maybe 6 feet by 8 feet,");
 		System.out.println("the room contains 4 walls, two of which have windows, one window views the adjacent room,");
 		System.out.println("you turn around to look out the other window to be greeted with the endless void of space.");
-		System.out.println("Panicked on how to escape this place you look around  the entire room.");	
 	}
 	
 	public void Look() {
@@ -24,7 +23,15 @@ public class Starting_Room implements Room {
 	}
 	
 	public void Take() {
-		System.out.println("Please select the item");
+		System.out.println("Please list the item youd like to take after the take command");
+	}
+
+	public Boolean startGame() {
+		System.out.println("You start the game in a dark poorly lit room. The room is small, maybe 6 feet by 8 feet,");
+		System.out.println("the room contains 4 walls, two of which have windows, one window views the adjacent room,");
+		System.out.println("you turn around to look out the other window to be greeted with the endless void of space.");
+		System.out.println("you begin to feel paniked as an alarm begins to go off, and you identify this place as an airlock");	
+		return true;
 	}
 	
 

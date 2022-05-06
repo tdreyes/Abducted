@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class mainClass {
-
+ public static boolean gamestarted = false;
+ protected static int currentRoom = 1;
 	public static void main(String[] args) {
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
@@ -19,24 +20,32 @@ public class mainClass {
 					//instantiate for the first room
 					Starting_Room startR = new Starting_Room();
 					Items item = new Items();
-					//put the user input on  println
+					//prints back what the user inputed.
 					System.out.println(uInput);
 					
-					if(uInput.toLowerCase().equals("enter")) {			
-						startR.EnterRoom();			
+					if(uInput.toLowerCase().equals("enter") && gamestarted == false) {	
+					
+						gamestarted = startR.startGame();
+
 					}
 					if(uInput.toLowerCase().equals("look")) {
-						startR.Look();				
+						if(currentRoom == 1)
+						{
+						startR.Look();		
+						}
 					}
 					if(uInput.toLowerCase().equals("take")) {
+						if(currentRoom == 1)
+						{
 						startR.Take();	
+						}
 					}
 					/**
 					 * TODO we need to find a way to make the items accessible
 					 * maybe a enum? a list? what d you guys think? Coz I dont want us to manually type it all
 					 */
-					if(uInput.toLowerCase().equals("Large tooth")) {
-						item.inventory.add(uInput);
+					if(uInput.toLowerCase().equals("take large tooth") && currentRoom == 1 && !item.inventory.contains("large tooth")) {
+						item.inventory.add("large tooth");
 					}
 				
 					if (uInput.toLowerCase().equals("h")) {
@@ -48,7 +57,8 @@ public class mainClass {
 						System.out.println("SMASH");
 						System.out.println("SHOOT");
 						System.out.println("RELOAD");
-						System.out.println("HIDE");
+						System.out.println("SAVE GAME");
+						System.out.println("LOAD GAME");
 						System.out.println("You May also Look in your inventory by typing either I or Inventory");
 						System.out.println("You may also type E or Exit At any time to exit the game");
 					}
@@ -71,5 +81,14 @@ public class mainClass {
 					uAction.close();
 					System.exit(0);
 				}
+	}
+	public enum Actions{
+		USE,
+		LOOK,
+		TAKE,
+		SMASH,
+		SHOOT,
+		RELOAD,
+		HIDE;
 	}
 }
