@@ -4,6 +4,13 @@ public class mainClass {
  public static boolean gamestarted = false;
  protected static int currentRoom = 1;
 	public static void main(String[] args) {
+		//Bailey added the lettering
+		System.out.println("     _        ______   ______     ___    ___    _____    _________    ________    ______       ");
+		System.out.println("    / \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
+		System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
+		System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
+		System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
+		System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       ");
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
 				System.out.println("Please type enter to start");
