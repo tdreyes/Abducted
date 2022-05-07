@@ -1,10 +1,33 @@
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
+import javax.sound.sampled.*;
+
 
 public class mainClass {
 	// for simplicities sake deeper in the ship will be north.
  public static boolean gamestarted = false;
  protected static int currentRoom = 1;
-	public static void main(String[] args) {
+	public static LocalDateTime StartAlarms;
+	public static LocalDateTime FiveRemaining;
+	public static LocalDateTime OneRemaining;
+	public static LocalDateTime Eject;
+	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		File airlockalarm1 = new File("AirLock Alarm.wav");
+		AudioInputStream Airlock1Stream = AudioSystem.getAudioInputStream(airlockalarm1);
+		Clip clip = AudioSystem.getClip();
+		try {
+			clip.open(Airlock1Stream);
+		} catch (LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		clip.start();
 		//Bailey added the lettering
 		/*try {
 		System.out.println("     _        ______   ______     ___    ___    _____    _________    ________    ______       ");
@@ -36,21 +59,34 @@ public class mainClass {
 					Items item = new Items();
 					//prints back what the user inputed.
 					System.out.println(uInput);
-					
 					if(uInput.toLowerCase().equals("enter") && gamestarted == false) {	
-					
+						StartAlarms = LocalDateTime.now();
+						FiveRemaining = StartAlarms.plusMinutes(5);
+						OneRemaining = StartAlarms.plusMinutes(9);
+						Eject = StartAlarms.plusMinutes(9);
 						gamestarted = startR.startGame();
-
 					}
-					if(uInput.toLowerCase().equals("look") && gamestarted == true) {
+					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
 						if(currentRoom == 1)
 						{
 						startR.Look();		
 						}
 					}
-					if(uInput.toLowerCase().equals("take") && gamestarted == true) {
+					if(uInput.toLowerCase().contains("take") && gamestarted == true) {
 						if(currentRoom == 1)
 						{
+							if(uInput.toLowerCase().contains("large tooth")) {
+								item.inventory.add("large tooth");
+							}
+							else if (uInput.toLowerCase().contains("lockpick")) {
+								item.inventory.add("lockpick");
+							}
+							else if (uInput.toLowerCase().contains("blaster battery")) {
+								item.inventory.add("blaster battery");
+							}
+							else if (uInput.toLowerCase().contains("blaster")) {
+								item.inventory.add("blaster");
+							}
 						startR.Take();	
 						}
 					}
@@ -58,9 +94,6 @@ public class mainClass {
 					 * TODO we need to find a way to make the items accessible
 					 * maybe a enum? a list? what d you guys think? Coz I dont want us to manually type it all
 					 */
-					if(uInput.toLowerCase().equals("take large tooth") && currentRoom == 1  && gamestarted == true) {
-						item.inventory.add("large tooth");
-					}
 				
 					if (uInput.toLowerCase().equals("h")) {
 						// Bailey added all the current possible actions
@@ -99,6 +132,11 @@ public class mainClass {
 					uAction.close();
 					System.exit(0);
 				}
+	}
+	private static void Spaced() {
+		System.out.println("You were sent Flying into the vast emptieness of space where you were instantly mummified");
+		System.out.println("GAME OVER");
+		System.exit(0);
 	}
 	public enum Actions{
 		GO,

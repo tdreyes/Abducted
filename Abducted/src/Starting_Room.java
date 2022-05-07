@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 /**
  * 
  */
@@ -7,6 +9,7 @@
  *
  */
 public class Starting_Room implements Room {
+	public final int RoomNumber = 1;
 	public final String RoomName = "Airlock";
 	
 	@Override public void EnterRoom() {
@@ -18,8 +21,8 @@ public class Starting_Room implements Room {
 	public void Look() {
 		System.out.println("You see: Alien nanobot lockpick");
 		System.out.println("Large Tooth");
-		System.out.println("Alien blaster battery");
-		System.out.println("Alien Blaster");
+		System.out.println("blaster battery");
+		System.out.println("Blaster");
 	}
 	
 	public void Take() {
