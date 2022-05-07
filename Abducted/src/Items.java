@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Items {
 	
-List<String> inventory;
+public List<String> inventory;
 	
 	public Items(){};	
 	

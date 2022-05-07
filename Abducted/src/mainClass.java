@@ -1,22 +1,23 @@
 import java.util.Scanner;
 
 public class mainClass {
+	// for simplicities sake deeper in the ship will be north.
  public static boolean gamestarted = false;
  protected static int currentRoom = 1;
 	public static void main(String[] args) {
 		//Bailey added the lettering
-		try {
+		/*try {
 		System.out.println("     _        ______   ______     ___    ___    _____    _________    ________    ______       ");
 		System.out.println("    / \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
 		System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
 		System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
 		System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
-		System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       ");
+		System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       "); 
 		} catch{
 			// just to get program to run
 			System.out.println("Title Card not working")
 		}
-		finally {
+		finally {*/
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
 				System.out.println("Please type enter to start");
@@ -41,13 +42,13 @@ public class mainClass {
 						gamestarted = startR.startGame();
 
 					}
-					if(uInput.toLowerCase().equals("look")) {
+					if(uInput.toLowerCase().equals("look") && gamestarted == true) {
 						if(currentRoom == 1)
 						{
 						startR.Look();		
 						}
 					}
-					if(uInput.toLowerCase().equals("take")) {
+					if(uInput.toLowerCase().equals("take") && gamestarted == true) {
 						if(currentRoom == 1)
 						{
 						startR.Take();	
@@ -57,28 +58,32 @@ public class mainClass {
 					 * TODO we need to find a way to make the items accessible
 					 * maybe a enum? a list? what d you guys think? Coz I dont want us to manually type it all
 					 */
-					if(uInput.toLowerCase().equals("take large tooth") && currentRoom == 1 && !item.inventory.contains("large tooth")) {
+					if(uInput.toLowerCase().equals("take large tooth") && currentRoom == 1  && gamestarted == true) {
 						item.inventory.add("large tooth");
 					}
 				
 					if (uInput.toLowerCase().equals("h")) {
 						// Bailey added all the current possible actions
 						System.out.println("Possible Actions Include:");
+						System.out.println("GO");
 						System.out.println("USE");
 						System.out.println("LOOK");
 						System.out.println("TAKE");
 						System.out.println("SMASH");
 						System.out.println("SHOOT");
 						System.out.println("RELOAD");
-						System.out.println("SAVE GAME");
-						System.out.println("LOAD GAME");
+						System.out.println("SAVE GAME"); // doesnt work yet
+						System.out.println("LOAD GAME"); // doesnt work yet
 						System.out.println("You May also Look in your inventory by typing either I or Inventory");
 						System.out.println("You may also type E or Exit At any time to exit the game");
+						System.out.println("Helpful Tip: North is always deeper into the ship");
 					}
 					// Bailey added a search inventory command
 					//I tried to make the list item show but it gave me an error
-					if (uInput.toLowerCase().equals("i") || uInput.toLowerCase().equals("inventory")) {
-						System.out.println(item.inventory);
+					if (uInput.toLowerCase().equals("i") || uInput.toLowerCase().equals("inventory")  && gamestarted == true) {
+						/**
+						 * Old code to view or add items to inventory threw a null error
+						 */
 						
 					}
 					// Bailey added a search inventory command
@@ -94,9 +99,9 @@ public class mainClass {
 					uAction.close();
 					System.exit(0);
 				}
-		}
 	}
 	public enum Actions{
+		GO,
 		USE,
 		LOOK,
 		TAKE,
