@@ -8,7 +8,10 @@ public interface Room {
 	 * displays unique message for each room
 	 */
 	abstract void EnterRoom();
-
-
 	
+	void Look();
+	
+	void Take();
+	
+
 }

@@ -14,7 +14,9 @@ public class mainClass {
 	public static LocalDateTime OneRemaining;
 	public static LocalDateTime Eject;
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		File airlockalarm1 = new File("AirLock Alarm.wav");
+		String path = System.getProperty("user.dir") + "/Abducted/AirLock Alarm.wav";
+		System.out.println(path);
+		File airlockalarm1 = new File(path);
 		AudioInputStream Airlock1Stream = AudioSystem.getAudioInputStream(airlockalarm1);
 		Clip clip = AudioSystem.getClip();
 		try {
@@ -31,19 +33,19 @@ public class mainClass {
 		//Bailey added the lettering
 		/*try {
 		System.out.println("     _        ______   ______     ___    ___    _____    _________    ________    ______       ");
-		System.out.println("    / \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
+		System.out.println("	/ \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
 		System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
 		System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
 		System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
 		System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       "); 
-		} catch{
-			// just to get program to run
-			System.out.println("Title Card not working")
+		catch{
+			 just to get program to run
+			 System.out.println("Title Card not working");
 		}
 		finally {*/
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
-				System.out.println("Please type enter to start");
+				System.out.println("Would you like to start the game?");
 				/**
 				 * this is to check user input
 				 */
@@ -56,10 +58,13 @@ public class mainClass {
 				while(!uInput.equals("e")) {
 					//instantiate for the first room
 					Starting_Room startR = new Starting_Room();
+					Room2 secondR = new Room2();
+					Room3 thirdR = new Room3();
+					Room4 fourthR = new Room4();
 					Items item = new Items();
 					//prints back what the user inputed.
 					System.out.println(uInput);
-					if(uInput.toLowerCase().equals("enter") && gamestarted == false) {	
+					if(uInput.toLowerCase().equals("yes") && gamestarted == false) {	
 						StartAlarms = LocalDateTime.now();
 						FiveRemaining = StartAlarms.plusMinutes(5);
 						OneRemaining = StartAlarms.plusMinutes(9);
@@ -74,6 +79,7 @@ public class mainClass {
 					}
 					if(uInput.toLowerCase().contains("take") && gamestarted == true) {
 						if(currentRoom == 1)
+						startR.Take();	
 						{
 							if(uInput.toLowerCase().contains("large tooth")) {
 								item.inventory.add("large tooth");
@@ -86,8 +92,100 @@ public class mainClass {
 							}
 							else if (uInput.toLowerCase().contains("blaster")) {
 								item.inventory.add("blaster");
+							}		
+						
+						}
+					}
+					if(uInput.toLowerCase().contains("second") && gamestarted == true) {
+						if(currentRoom == 1)
+						currentRoom += 1;			
+					}
+					
+					//teresa
+					if(uInput.toLowerCase().contains("enter") && gamestarted == true) {
+						if(currentRoom == 2){
+							secondR.EnterRoom();		
+						}
+					}
+					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
+						if(currentRoom == 2){
+							secondR.Look();					
+						}
+					}						
+					if(uInput.toLowerCase().contains("yes") && gamestarted == true) {
+						if(currentRoom == 2){
+							secondR.closerCage1();	
+							secondR.closerCage2();
+							secondR.closerCage3();
+						}
+					}
+					if(uInput.toLowerCase().contains("take") && gamestarted == true) {
+						if(currentRoom == 2){
+							secondR.Take();
 							}
-						startR.Take();	
+					}
+					if(uInput.toLowerCase().contains("cage")){
+								System.out.println("lYou cannot take the cage");
+							
+					}
+					
+					if(uInput.toLowerCase().contains("third") && gamestarted == true) {
+						if(currentRoom == 2)
+						currentRoom += 1;			
+					}
+					//teresa
+					if(uInput.toLowerCase().contains("enter") && gamestarted == true) {
+						if(currentRoom == 3){
+							thirdR.EnterRoom();		
+						}
+					}
+					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
+						if(currentRoom == 3){
+							thirdR.Look();					
+						}
+					}	
+					if(currentRoom == 3) {
+						if(uInput.toLowerCase().contains("take") && gamestarted == true) {	
+								thirdR.Take();
+							}
+						if(uInput.toLowerCase().contains("yellow")){
+								thirdR.takeYellow();
+								uAction.close();
+								System.out.println("Game over! Thank you for playing");
+								System.exit(0);
+							}
+						if(uInput.toLowerCase().contains("blue")){
+								thirdR.takeBlue();
+							}
+							if(uInput.toLowerCase().contains("purple")){
+								thirdR.takePurple();
+							}
+							if(uInput.toLowerCase().contains("carnivorous")){
+								thirdR.takeCarnivorous();
+								uAction.close();
+								System.out.println("Game over! Thank you for playing");
+								System.exit(0);
+							}
+						}
+					//this is for testing. I forced user to type per room just to see if it works
+					if(uInput.toLowerCase().contains("fourth") && gamestarted == true) {
+						if(currentRoom == 3)
+						currentRoom += 1;			
+					}
+					//teresa
+					if(uInput.toLowerCase().contains("enter") && gamestarted == true) {
+						if(currentRoom == 4){
+							thirdR.EnterRoom();		
+						}
+					}
+					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
+						if(currentRoom == 4){
+							fourthR.Look();					
+						}
+					}						
+					if(uInput.toLowerCase().contains("take") && gamestarted == true) {
+						if(currentRoom == 4){
+							fourthR.Take();
 						}
 					}
 					/**
@@ -122,6 +220,7 @@ public class mainClass {
 					// Bailey added a search inventory command
 					if (uInput.toLowerCase().equals("e") || uInput.toLowerCase().equals("exit")) {
 						uAction.close();
+						System.out.println("Thank you for playing!");
 						System.exit(0);
 					}
 					
@@ -130,6 +229,7 @@ public class mainClass {
 				}
 				if (uInput.toLowerCase().equals("e") || uInput.toLowerCase().equals("exit")) {
 					uAction.close();
+					System.out.println("Thank you for playing!");
 					System.exit(0);
 				}
 	}
