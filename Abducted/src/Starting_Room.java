@@ -23,8 +23,10 @@ public class Starting_Room implements Room {
 	public void Look() {
 		System.out.println("You see: Alien nanobot lockpick");
 		System.out.println("Large Tooth");
-		System.out.println("blaster battery");
+		System.out.println("Blaster battery");
 		System.out.println("Blaster");
+		System.out.println("The airlock door leading out to space");
+		System.out.println("The door leading farther into the ship");
 	}
 	//Teresa
 	public void Take() {
