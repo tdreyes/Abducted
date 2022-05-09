@@ -10,24 +10,24 @@ public class mainClass {
  public static boolean gamestarted = false;
  protected static int currentRoom = 1;
 	public static LocalDateTime StartAlarms;
-	public static LocalDateTime FiveRemaining;
 	public static LocalDateTime OneRemaining;
 	public static LocalDateTime Eject;
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		
+	
 		//Bailey added the lettering
 		try {
 		System.out.println("     _        ______   ______     ___    ___    _____    _________    ________    ______       ");
-		System.out.println("	/ \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
-		System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
-		System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
-		System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
-		System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       "); 
-		catch{
-			 just to get program to run
-			 System.out.println("Title Card not working");
+		//System.out.println("	/ \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
+		//System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
+		//System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
+		//System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
+		//System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       "); 
+		}
+		catch(Exception ex){
+		System.out.println("title card not working");
 		}
 		finally {
+
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
 				System.out.println("Would you like to start the game?");
@@ -50,10 +50,7 @@ public class mainClass {
 					//prints back what the user inputed.
 					System.out.println(uInput);
 					if(uInput.toLowerCase().equals("yes") && gamestarted == false) {	
-						StartAlarms = LocalDateTime.now();
-						FiveRemaining = StartAlarms.plusMinutes(5);
-						OneRemaining = StartAlarms.plusMinutes(9);
-						Eject = StartAlarms.plusMinutes(9);
+						StartAlarms = LocalDateTime.now();;
 						gamestarted = startR.startGame();
 					}
 					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
@@ -205,11 +202,33 @@ public class mainClass {
 					System.out.println("Thank you for playing!");
 					System.exit(0);
 				}
+		}
 	}
+
 	private static void Spaced() {
 		System.out.println("You were sent Flying into the vast emptieness of space where you were instantly mummified");
 		System.out.println("GAME OVER");
 		System.exit(0);
+	}
+	private static void Alarm(String alarmpath) {
+		try {
+		File alarm1 = new File(alarmpath);
+		if(alarm1.exists())
+		{
+			AudioInputStream alarmInput = AudioSystem.getAudioInputStream(alarm1);
+			Clip clip = AudioSystem.getClip();
+			clip.open(alarmInput);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		}
+		else {
+			System.out.println("Cant find audio file");
+		}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 	public enum Actions{
 		GO,
