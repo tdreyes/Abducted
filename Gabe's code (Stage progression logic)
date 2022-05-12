@@ -1,0 +1,156 @@
+int door1islocked = 0; //the door starts off locked 0 = locked 1 = unlocked
+int door2islocked = 0;
+int door3islocked = 0;
+int escapePodIsLocked = 0;
+If inventory.contains(alien nanobot){
+	//The use action on the door will set door1islocked = 1;
+	
+}
+else {
+	//nothing
+}
+
+
+//These if statements probably belong in the If statements of the player moving room to room
+if door1islocked = 0{
+	//player cannot enter next room
+}
+
+if door2islocked = 0{
+	//player cannot enter next room
+}
+
+if door3islocked = 0{
+	//player cannot enter next room
+}
+
+
+//ROOM 1
+//Not sure what the proper syntax is for our actions but this is the logic needed
+USE alien nanobot on entrance door{
+	door1islocked = 1;
+	System.out.println("The alien nanobot crawls inside the alien lock, you here a sizzle and a pop as the door swings open.");
+}
+
+//when door1islocked = 1 The logic just needs to be added to wherever the code for room progression is, this goes for all doors and escapePodIsLocked
+
+//ROOM 2
+USE medium cage{
+	door2islocked = 1;
+	System.out.println("The second you unlock the cage, the arachnoid bolts for the door and dissolves the lock with its acidic fangs, it seems to enjoy the taste of space metal");
+	System.out.println("The door swings open and the creature runs inside, only to be snatched up by giant green jaws, you look inside the room and a huge carnivourous plant is chewing on the beast");
+	System.out.println("The plant is busy chewing its victim, you have some time to explore this room which appears to be a lush biolab");
+}
+
+//ROOM 3
+//In this room the player needs to take the blue plant and use it on the door to progress, the blue plant will freeze the door causing the bolts to pop off the hingers
+TAKE blue plant{
+//add blue plant to inventory
+}
+
+
+USE blue plant on door3{
+	door3islocked = 1;
+	System.out.println("The plant oozes liquid nitrogen into the inner working of the door, after a few seconds you see the freezing is causing the inner workings to expand");
+	System.out.println("A few more seconds pass and the bolts fly off the hinges, the door falls flat on the ground, revealing a long hallway ahead of you.");
+}
+
+//Final room
+//Win conditions
+//Kill the alien ending
+//The player needs the blaster
+SHOOT Blaster on Purple Alien{
+System.out.println("You ready your blaster and shoot the alien in the back, it leaves a massive hole in the alien, it falls to the floor and dies.");
+System.out.println("You killed your abductor and now own your very own spaceship!");
+System.out.println("You Win!");
+}
+//Escape pod ending
+//The player needs to acquire the escape pod token in order to leave in an escape pod
+//In order to acquire it the player needs to steal it off the purple alien's(The alien that abducted the player) belt.
+TAKE token{
+// add the token to the inventory
+}
+USE token {
+System.out.println("You approach the escape pod as you hear heavy footsteps angrily stomping on the floor, you insert the token into the escape pod, the screen loads.");
+System.out.println("The footsteps get louder and closes as you hear the yells of an angry alien, the noises become louder and louder until the escape pod door opens up.");
+System.out.println("You hastily hop in the escape pod and the door seals behind you, on the other side of the door you see the ugly monster that abducted you, it screams with a fist in the air!");
+System.out.println("The escape pod launches towards earth as the ugly alien's visage become smaller and smaller.");
+System.out.println("You Win!");
+int door1islocked = 0; //the door starts off locked 0 = locked 1 = unlocked
+int door2islocked = 0;
+int door3islocked = 0;
+int escapePodIsLocked = 0;
+If inventory.contains(alien nanobot){
+	//The use action on the door will set door1islocked = 1;
+	
+}
+else {
+	//nothing
+}
+
+
+//These if statements probably belong in the If statements of the player moving room to room
+if door1islocked = 0{
+	//player cannot enter next room
+}
+
+if door2islocked = 0{
+	//player cannot enter next room
+}
+
+if door3islocked = 0{
+	//player cannot enter next room
+}
+
+
+//ROOM 1
+//Not sure what the proper syntax is for our actions but this is the logic needed
+USE alien nanobot on entrance door{
+	door1islocked = 1;
+	System.out.println("The alien nanobot crawls inside the alien lock, you here a sizzle and a pop as the door swings open.");
+}
+
+//when door1islocked = 1 The logic just needs to be added to wherever the code for room progression is, this goes for all doors and escapePodIsLocked
+
+//ROOM 2
+USE medium cage{
+	door2islocked = 1;
+	System.out.println("The second you unlock the cage, the arachnoid bolts for the door and dissolves the lock with its acidic fangs, it seems to enjoy the taste of space metal");
+	System.out.println("The door swings open and the creature runs inside, only to be snatched up by giant green jaws, you look inside the room and a huge carnivourous plant is chewing on the beast");
+	System.out.println("The plant is busy chewing its victim, you have some time to explore this room which appears to be a lush biolab");
+}
+
+//ROOM 3
+//In this room the player needs to take the blue plant and use it on the door to progress, the blue plant will freeze the door causing the bolts to pop off the hingers
+TAKE blue plant{
+//add blue plant to inventory
+}
+
+
+USE blue plant on door3{
+	door3islocked = 1;
+	System.out.println("The plant oozes liquid nitrogen into the inner working of the door, after a few seconds you see the freezing is causing the inner workings to expand");
+	System.out.println("A few more seconds pass and the bolts fly off the hinges, the door falls flat on the ground, revealing a long hallway ahead of you.");
+}
+
+//Final room
+//Win conditions
+//Kill the alien ending
+//The player needs the blaster
+SHOOT Blaster on Purple Alien{
+System.out.println("You ready your blaster and shoot the alien in the back, it leaves a massive hole in the alien, it falls to the floor and dies.");
+System.out.println("You killed your abductor and now own your very own spaceship!");
+System.out.println("You Win!");
+}
+//Escape pod ending
+//The player needs to acquire the escape pod token in order to leave in an escape pod
+//In order to acquire it the player needs to steal it off the purple alien's(The alien that abducted the player) belt.
+TAKE token{
+// add the token to the inventory
+}
+USE token {
+System.out.println("You approach the escape pod as you hear heavy footsteps angrily stomping on the floor, you insert the token into the escape pod, the screen loads.");
+System.out.println("The footsteps get louder and closes as you hear the yells of an angry alien, the noises become louder and louder until the escape pod door opens up.");
+System.out.println("You hastily hop in the escape pod and the door seals behind you, on the other side of the door you see the ugly monster that abducted you, it screams with a fist in the air!");
+System.out.println("The escape pod launches towards earth as the ugly alien's visage become smaller and smaller.");
+System.out.println("You Win!");
