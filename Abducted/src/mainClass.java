@@ -10,39 +10,24 @@ public class mainClass {
  public static boolean gamestarted = false;
  protected static int currentRoom = 1;
 	public static LocalDateTime StartAlarms;
-	public static LocalDateTime FiveRemaining;
 	public static LocalDateTime OneRemaining;
 	public static LocalDateTime Eject;
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		String path = System.getProperty("user.dir") + "/Abducted/AirLock Alarm.wav";
-		System.out.println(path);
-		File airlockalarm1 = new File(path);
-		AudioInputStream Airlock1Stream = AudioSystem.getAudioInputStream(airlockalarm1);
-		Clip clip = AudioSystem.getClip();
-		try {
-			clip.open(Airlock1Stream);
-		} catch (LineUnavailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		clip.start();
+	
 		//Bailey added the lettering
-		/*try {
+		try {
 		System.out.println("     _        ______   ______     ___    ___    _____    _________    ________    ______       ");
-		System.out.println("	/ \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
-		System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
-		System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
-		System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
-		System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       "); 
-		catch{
-			 just to get program to run
-			 System.out.println("Title Card not working");
+		//System.out.println("	/ \      |  __  \ |  __  \    | |    | |   /  __/   |         |   |  _____|	 |  __  \ 		");
+		//System.out.println("   / _ \     | |__|	| | |  \  \   | |    | |  |  |      |____  ___|   | |_____   | |  \  \     	");
+		//System.out.println("  / ___ \    |  __  | | |   |  |  | |    | |  |  |          |  |      |  _____|  | |   |  |     ");
+		//System.out.println(" / /   \ \   | |__/ / | |___| /   | \___ / |  |  \____      |  |      | |_____   | |___| /      ");
+		//System.out.println("/_/     \_\  |_____/  |______/     \______/    \_____/      |__|      |_______|  |______/       "); 
 		}
-		finally {*/
+		catch(Exception ex){
+		System.out.println("title card not working");
+		}
+		finally {
+
 		//Teresa added the intro message
 				System.out.println("Welcome to Abducted");
 				System.out.println("Would you like to start the game?");
@@ -65,16 +50,25 @@ public class mainClass {
 					//prints back what the user inputed.
 					System.out.println(uInput);
 					if(uInput.toLowerCase().equals("yes") && gamestarted == false) {	
-						StartAlarms = LocalDateTime.now();
-						FiveRemaining = StartAlarms.plusMinutes(5);
-						OneRemaining = StartAlarms.plusMinutes(9);
-						Eject = StartAlarms.plusMinutes(9);
+						StartAlarms = LocalDateTime.now();;
 						gamestarted = startR.startGame();
 					}
 					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
 						if(currentRoom == 1)
 						{
 						startR.Look();		
+						}
+						if(currentRoom == 2)
+						{
+						secondR.Look();
+						}
+						if(currentRoom == 1)
+						{
+						thirdR.Look();		
+						}
+						if(currentRoom == 2)
+						{
+						fourthR.Look();
 						}
 					}
 					if(uInput.toLowerCase().contains("take") && gamestarted == true) {
@@ -96,11 +90,18 @@ public class mainClass {
 						
 						}
 					}
-					if(uInput.toLowerCase().contains("second") && gamestarted == true) {
-						if(currentRoom == 1)
-						currentRoom += 1;			
+					if(uInput.toLowerCase().contains("go") && gamestarted == true) {
+						if(uInput.toLowerCase().contains("north"))
+						{
+						currentRoom++;
+						System.out.println(currentRoom);
+						}
+						if(uInput.toLowerCase().contains("south"))
+						{
+						currentRoom--;
+						System.out.println(currentRoom);
+						}
 					}
-					
 					//teresa
 					if(uInput.toLowerCase().contains("enter") && gamestarted == true) {
 						if(currentRoom == 2){
@@ -129,16 +130,6 @@ public class mainClass {
 							
 					}
 					
-					if(uInput.toLowerCase().contains("third") && gamestarted == true) {
-						if(currentRoom == 2)
-						currentRoom += 1;			
-					}
-					//teresa
-					if(uInput.toLowerCase().contains("enter") && gamestarted == true) {
-						if(currentRoom == 3){
-							thirdR.EnterRoom();		
-						}
-					}
 					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
 						if(currentRoom == 3){
 							thirdR.Look();					
@@ -167,27 +158,6 @@ public class mainClass {
 								System.exit(0);
 							}
 						}
-					//this is for testing. I forced user to type per room just to see if it works
-					if(uInput.toLowerCase().contains("fourth") && gamestarted == true) {
-						if(currentRoom == 3)
-						currentRoom += 1;			
-					}
-					//teresa
-					if(uInput.toLowerCase().contains("enter") && gamestarted == true) {
-						if(currentRoom == 4){
-							thirdR.EnterRoom();		
-						}
-					}
-					if(uInput.toLowerCase().contains("look") && gamestarted == true) {
-						if(currentRoom == 4){
-							fourthR.Look();					
-						}
-					}						
-					if(uInput.toLowerCase().contains("take") && gamestarted == true) {
-						if(currentRoom == 4){
-							fourthR.Take();
-						}
-					}
 					/**
 					 * TODO we need to find a way to make the items accessible
 					 * maybe a enum? a list? what d you guys think? Coz I dont want us to manually type it all
@@ -232,11 +202,33 @@ public class mainClass {
 					System.out.println("Thank you for playing!");
 					System.exit(0);
 				}
+		}
 	}
+
 	private static void Spaced() {
 		System.out.println("You were sent Flying into the vast emptieness of space where you were instantly mummified");
 		System.out.println("GAME OVER");
 		System.exit(0);
+	}
+	private static void Alarm(String alarmpath) {
+		try {
+		File alarm1 = new File(alarmpath);
+		if(alarm1.exists())
+		{
+			AudioInputStream alarmInput = AudioSystem.getAudioInputStream(alarm1);
+			Clip clip = AudioSystem.getClip();
+			clip.open(alarmInput);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		}
+		else {
+			System.out.println("Cant find audio file");
+		}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 	public enum Actions{
 		GO,
