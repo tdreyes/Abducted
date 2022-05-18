@@ -1,7 +1,7 @@
 
 public class Character {
 
-	String name = "Bob";
+	String name = "Julie";
 	
 	public class UserCharacter{
 		String name = "";
